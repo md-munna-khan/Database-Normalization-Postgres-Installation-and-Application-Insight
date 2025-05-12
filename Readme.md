@@ -85,3 +85,8 @@ But Your Name → NID ❌ (Many people can have the same name)
 
 
 ![alt text](image-3.png)
+
+## 6-3 Normalization and 1st Normal Forms (1NF)
+2. ## Normal Forms
+![alt text](image-4.png)
+![alt text](image-5.png)

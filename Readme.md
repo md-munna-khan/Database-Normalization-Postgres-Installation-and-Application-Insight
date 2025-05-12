@@ -29,4 +29,59 @@ A Medical Database System is needed to enhance the efficiency and effectiveness 
 ## there are 3 main types anomalies
 ![alt text](image-1.png)
 
+## 6-2 Understanding Functional Dependency.
+## What is Normalization?
+- Normalization is organize data in database
 
+# Normalization in 2 types 1.Functional Dependency 2.Normal Forms
+
+1. # Functional Dependency
+![alt text](image-2.png)
+If two rows have the same value of attribute X, and in both cases the value of Y is also the same, then we say:
+X → Y (X functionally determines Y)
+if not same? not functional Dependency
+
+🔹 What is Functional Dependency?
+In a database table, if one column's value uniquely decides another column’s value, we call that a functional dependency.
+
+We write it as:
+
+X → Y
+(Read as: "X determines Y")
+
+That means:
+
+If two rows have the same value of X, they must have the same value of Y.
+
+✅ Example:
+StudentID 	Name	Department
+101 	Munna	 CSE
+102 	Rakib	 EEE
+103	  Munna	    CSE
+
+Now see this:
+
+StudentID → Name ✅ (Because each StudentID is unique and gives only one Name)
+
+Name → Department ✅ (In this table, Munna is always in CSE, Rakib in EEE)
+
+But Department → Name ❌ (One department can have many students with different names)
+
+🔸 Why It’s Important?
+Functional dependencies help in:
+
+Database Design
+
+Normalization (breaking large tables into smaller ones to remove redundancy)
+
+Avoiding data duplication and update errors
+
+ Real-Life Analogy:
+Think of a National ID Card:=
+
+Your NID number → Your Name ✅
+
+But Your Name → NID ❌ (Many people can have the same name)
+
+
+![alt text](image-3.png)

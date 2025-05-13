@@ -108,10 +108,10 @@ Partial Dependency হলো এমন একটি নির্ভরতা, �
 
 🧾 উদাহরণ:
 🟥 টেবিল: Enrollment
-StudentID	CourseID	StudentName	CourseName
-101	CSE101	Munna	CSE
-101	CSE102	Munna	DS
-102	CSE101	Ayesha	CSE
+StudentID	CourseID	StudentName	   CourseName
+101	     CSE101	           Munna	       CSE
+101	    CSE102	           Munna	        DS
+102	   CSE101	           Ayesha	      CSE
 
 Primary Key: (StudentID, CourseID)
 
@@ -124,8 +124,8 @@ CourseName শুধুমাত্র CourseID এর উপর নির্ভ
 ✅ সমাধান (2NF করতে বিভক্ত করতে হবে):
 🔷 Table: Students
 StudentID	StudentName
-101	Munna
-102	Ayesha
+101	        Munna
+102	         Ayesha
 
 🔷 Table: Courses
 CourseID	CourseName
@@ -144,3 +144,84 @@ StudentID	CourseID
 বিষয়	ব্যাখ্যা
 1NF	Repeating group নেই, সব অ্যাট্রিবিউট atomic
 2NF	1NF + no partial dependency on primary key
+
+
+## 6-5 3rd Normal Forms and Transitive Dependency (3NF)
+
+![alt text](image-7.png)
+✅ 3NF (Third Normal Form) Explained Simply:
+3NF (Third Normal Form) is a database normalization step used to reduce redundancy and improve data integrity in relational databases.
+
+🧱 What is Normalization?
+Normalization is the process of organizing data to:
+
+Remove duplicate data (redundancy)
+
+Prevent update, insert, and delete anomalies
+
+Make the database more efficient and clean
+
+✅ A Table is in 3NF if:
+To be in Third Normal Form, a table must satisfy:
+
+✅ It is in Second Normal Form (2NF)
+
+✅ No Transitive Dependency:
+Non-key attributes should not depend on other non-key attributes.
+
+📦 3NF Rule in Simple Terms:
+"Every non-prime attribute must depend only on the primary key, not on another non-key attribute."
+
+🔁 What is Transitive Dependency?
+If:
+A → B
+and
+B → C
+Then:
+A → C (Transitive Dependency)
+
+This breaks 3NF if B is a non-key.
+
+🧠 Example to Understand 3NF:
+🟥 Not in 3NF:
+StudentID	Name	Department	Dept_Location
+101	Munna	CSE	Building A
+102	Ayesha	EEE	Building B
+
+Primary Key: StudentID
+
+StudentID → Department ✅
+
+Department → Dept_Location ✅ ❌ ← Transitive dependency
+
+So:
+
+StudentID → Dept_Location (via Department) ❌ Breaks 3NF
+
+🟩 To Convert to 3NF:
+Split the table into two:
+
+🔹 Table 1: Students
+StudentID	Name	Department
+101	Munna	CSE
+102	Ayesha	EEE
+
+🔹 Table 2: Departments
+Department	Dept_Location
+CSE	Building A
+EEE	Building B
+
+Now:
+
+No transitive dependency
+
+Tables are in 3NF ✅
+
+🧾 Summary (in Bangla):
+3NF মানে হলো এমন একটি টেবিল যেখানে:
+
+এটি 2NF-এ থাকবে।
+
+কোন নন-প্রাইম অ্যাট্রিবিউট অন্য নন-প্রাইম অ্যাট্রিবিউটের উপর নির্ভর করবে না।
+
+উদ্দেশ্য: তথ্যের পুনরাবৃত্তি কমানো এবং ডেটার নির্ভুলতা বজায় রাখা।

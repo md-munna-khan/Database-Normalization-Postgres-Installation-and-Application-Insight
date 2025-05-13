@@ -290,3 +290,9 @@ Tables are in 3NF ✅
 - ✔️ **Data redundancy** কম হয়  
 - ✔️ ভবিষ্যতে সহজে কোর্স বা ছাত্র অ্যাসাইন / রিমুভ করা যায়
 ![alt text](image-9.png)
+
+## 6-7 Completing The ER Diagram
+### Er Diagram Symbols
+![alt text](image-10.png)
+## Hybrid design
+![alt text](image-11.png)

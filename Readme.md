@@ -90,3 +90,57 @@ But Your Name → NID ❌ (Many people can have the same name)
 2. ## Normal Forms
 ![alt text](image-4.png)
 ![alt text](image-5.png)
+
+## 6-4 2nd Normal Forms and Partial Dependency (2NF)
+![alt text](image-6.png)
+🧠 Second Normal Form (2NF) কাকে বলে?
+Second Normal Form (2NF) হলো ডেটাবেইস নরমালাইজেশনের (Database Normalization) দ্বিতীয় ধাপ, যা First Normal Form (1NF) পূরণ করার পর প্রয়োগ করা হয়।
+
+✅ সংজ্ঞা (Definition):
+একটি রিলেশন 2NF-এ থাকে, যদি—
+
+এটি 1NF-এ থাকে, এবং
+
+এর প্রতিটি non-prime attribute (যে অ্যাট্রিবিউটগুলি candidate key নয়) সম্পূর্ণভাবে primary key-এর উপর নির্ভরশীল হয় — অর্থাৎ partial dependency না থাকে।
+
+🔍 Partial Dependency কী?
+Partial Dependency হলো এমন একটি নির্ভরতা, যেখানে একটি composite primary key (যেমন: A + B) এর কেবল একটি অংশ দ্বারা কোনো non-prime attribute নির্ধারিত হয়।
+
+🧾 উদাহরণ:
+🟥 টেবিল: Enrollment
+StudentID	CourseID	StudentName	CourseName
+101	CSE101	Munna	CSE
+101	CSE102	Munna	DS
+102	CSE101	Ayesha	CSE
+
+Primary Key: (StudentID, CourseID)
+
+📌 সমস্যা (1NF থাকলেও 2NF নয়):
+StudentName শুধুমাত্র StudentID এর উপর নির্ভরশীল।
+
+CourseName শুধুমাত্র CourseID এর উপর নির্ভরশীল।
+➡️ তাই এখানে partial dependency আছে।
+
+✅ সমাধান (2NF করতে বিভক্ত করতে হবে):
+🔷 Table: Students
+StudentID	StudentName
+101	Munna
+102	Ayesha
+
+🔷 Table: Courses
+CourseID	CourseName
+CSE101	CSE
+CSE102	DS
+
+🔷 Table: Enrollment
+StudentID	CourseID
+101	CSE101
+101	CSE102
+102	CSE101
+
+এখন টেবিলগুলো 2NF-এ রয়েছে, কারণ কোনো partial dependency নেই।
+
+🔑 সারসংক্ষেপ:
+বিষয়	ব্যাখ্যা
+1NF	Repeating group নেই, সব অ্যাট্রিবিউট atomic
+2NF	1NF + no partial dependency on primary key

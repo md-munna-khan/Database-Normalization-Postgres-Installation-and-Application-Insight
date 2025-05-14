@@ -296,3 +296,77 @@ Tables are in 3NF ✅
 ![alt text](image-10.png)
 ## Hybrid design
 ![alt text](image-11.png)
+## 6-9 Exploring Data Flow in an Application and Exploring PSQL
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+## add your password
+Password for user postgres:
+
+psql (17.4)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+## check list of database
+postgres=# \l
+                                                                    List of databases
+   Name    |  Owner   | Encoding | Locale Provider |          Collate           |           Ctype            | Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+----------------------------+----------------------------+--------+-----------+-----------------------
+ postgres  | postgres | UTF8     | libc            | English_United States.1252 | English_United States.1252 |        |           |
+ template0 | postgres | UTF8     | libc            | English_United States.1252 | English_United States.1252 |        |           | =c/postgres          +
+           |          |          |                 |                            |                            |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | English_United States.1252 | English_United States.1252 |        |           | =c/postgres          +
+           |          |          |                 |                            |                            |        |           | postgres=CTc/postgres
+(3 rows)
+
+## change template
+postgres=# \c template1
+You are now connected to database "template1" as user "postgres".
+## check data relations
+template1=# \d
+Did not find any relations.
+template1=# \c postgres
+You are now connected to database "postgres" as user "postgres".
+## create table
+postgres=# CREATE TABLE test_table(name varchar(50));
+CREATE TABLE
+postgres=# \d
+           List of relations
+ Schema |    Name    | Type  |  Owner
+--------+------------+-------+----------
+ public | test_table | table | postgres
+(1 row)
+
+## check schema
+postgres=# \dn
+      List of schemas
+  Name  |       Owner
+--------+-------------------
+ public | pg_database_owner
+(1 row)
+
+## command clean \! cls
+
+## extra information check
+postgres-# \d+
+                                      List of relations
+ Schema |    Name    | Type  |  Owner   | Persistence | Access method |  Size   | Description
+--------+------------+-------+----------+-------------+---------------+---------+-------------
+ public | test_table | table | postgres | permanent   | heap          | 0 bytes |
+(1 row)
+
+## just data table
+postgres-# \dt
+           List of relations
+ Schema |    Name    | Type  |  Owner
+--------+------------+-------+----------
+ public | test_table | table | postgres
+(1 row)
+## check connection infi
+postgres-# \conninfo
+You are connected to database "postgres" as user "postgres" on host "localhost" (address "::1") at port "5432".
+## quit 
+postgres-# \q
+Press any key to continue . . .
